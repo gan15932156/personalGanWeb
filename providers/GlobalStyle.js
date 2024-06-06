@@ -83,5 +83,12 @@ h6 {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
+
+@media only screen and (max-width:39em){
+  html {
+  font-size: 50%;
+}
+}
 `;
 export default GlobalStyles;

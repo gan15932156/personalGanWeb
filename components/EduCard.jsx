@@ -65,7 +65,7 @@ const TimelineContent = styled.div`
   width: 45%;
   background-color: var(--clr-primary-300);
   padding: 1.2rem;
-  box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;

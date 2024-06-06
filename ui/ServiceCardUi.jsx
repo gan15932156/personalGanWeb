@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -13,7 +14,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
 `;
 export const Heading = styled.h1`
@@ -59,10 +60,11 @@ export const ServiceCta = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-top: auto;
 `;
-export const CtaButton = styled.button`
+export const CtaButton = styled(Link)`
   border: none;
-  outline: nnoe;
+  outline: none;
   font-size: 2.4rem;
   font-weight: 700;
   background-color: var(--clr-primary-500);

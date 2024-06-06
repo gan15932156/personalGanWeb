@@ -23,45 +23,45 @@ gsap.registerPlugin(useGSAP);
 const ServiceCard = memo(function ServiceCard({ data }) {
   const containerRef = useRef(null);
   const overlayRef = useRef(null);
-  useGSAP(
-    (context, contextSafe) => {
-      const container = containerRef.current;
-      const overlay = overlayRef.current;
+  // useGSAP(
+  //   (context, contextSafe) => {
+  //     const container = containerRef.current;
+  //     const overlay = overlayRef.current;
 
-      const handleMouseMove = contextSafe((e) => {
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+  //     const handleMouseMove = contextSafe((e) => {
+  //       const rect = container.getBoundingClientRect();
+  //       const x = e.clientX - rect.left;
+  //       const y = e.clientY - rect.top;
 
-        gsap.to(overlay, {
-          x: x,
-          y: y,
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      });
+  //       gsap.to(overlay, {
+  //         x: x,
+  //         y: y,
+  //         duration: 0.2,
+  //         ease: "power2.out",
+  //       });
+  //     });
 
-      const handleMouseEnter = contextSafe(() => {
-        gsap.to(overlay, { opacity: 1, duration: 0.2 });
-      });
+  //     const handleMouseEnter = contextSafe(() => {
+  //       gsap.to(overlay, { opacity: 1, duration: 0.2 });
+  //     });
 
-      const handleMouseLeave = contextSafe(() => {
-        gsap.to(overlay, { opacity: 0, duration: 0.2 });
-      });
-      container.addEventListener("mousemove", handleMouseMove);
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-      return () => {
-        container.removeEventListener("mousemove", handleMouseMove);
-        container.removeEventListener("mouseenter", handleMouseEnter);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      };
-    },
-    { scope: containerRef }
-  );
+  //     const handleMouseLeave = contextSafe(() => {
+  //       gsap.to(overlay, { opacity: 0, duration: 0.2 });
+  //     });
+  //     container.addEventListener("mousemove", handleMouseMove);
+  //     container.addEventListener("mouseenter", handleMouseEnter);
+  //     container.addEventListener("mouseleave", handleMouseLeave);
+  //     return () => {
+  //       container.removeEventListener("mousemove", handleMouseMove);
+  //       container.removeEventListener("mouseenter", handleMouseEnter);
+  //       container.removeEventListener("mouseleave", handleMouseLeave);
+  //     };
+  //   },
+  //   { scope: containerRef }
+  // );
   return (
     <Wrapper ref={containerRef}>
-      <div
+      {/* <div
         ref={overlayRef}
         style={{
           width: "50px",
@@ -77,7 +77,7 @@ const ServiceCard = memo(function ServiceCard({ data }) {
         }}
       >
         dsd
-      </div>
+      </div> */}
       <ServiceCount>{data.id}</ServiceCount>
       <Heading>{data.nameTh}</Heading>
       <ServiceDetailWrapper>
@@ -99,7 +99,7 @@ const ServiceCard = memo(function ServiceCard({ data }) {
         </ServiceStepWrapper>
       </ServiceDetailWrapper>
       <ServiceCta>
-        <CtaButton>Hire me!</CtaButton>
+        <CtaButton href="#cta">Hire me!</CtaButton>
         <TechCards icons={data.techBadge} />
       </ServiceCta>
       <ServeiceBadge>

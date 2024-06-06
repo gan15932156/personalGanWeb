@@ -40,6 +40,9 @@ const Wrapper = styled.div`
   padding-bottom: 14rem;
   grid-template-columns: repeat(auto-fit, minmax(min(60rem, 100%), 1fr));
   grid-auto-rows: 1fr;
+  ${media.sm`
+    padding-inline: 2rem;
+  `}
   & > * {
     height: 100%;
   }
@@ -92,7 +95,7 @@ const FloatingText = styled.div`
     }
   }
 `;
-const NameText = styled.h1`
+const NameText = styled.h2`
   font-size: 4.8rem;
   letter-spacing: 2.2px;
   position: relative;
@@ -118,24 +121,41 @@ const NameText = styled.h1`
       line-height: 1.6;font-size: 5.2rem;
     }
   `}
+  ${media.sm`
+    font-size: 4rem;
+    text-align:center;
+    &::after {
+      /* position:relative; */
+      top:3.2rem;
+      left:0;
+      scale:1;
+    }
+  `}
 `;
-const CareerText = styled.h2`
+const CareerText = styled.h1`
   font-size: 7rem;
   font-weight: 700;
   letter-spacing: 2.4px;
   line-height: 2.4;
   color: var(--clr-primary-500);
   z-index: 2;
+  ${media.sm`
+    font-size: 5.2rem;
+    text-align:center;
+    line-height: unset;
+  `}
 `;
 const LeftWrapper = styled.div`
   position: relative;
   text-align: start;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   gap: 2rem;
+  ${media.sm`
+    align-items: center;
+  `}
 `;
 const CtaWrapper = styled.div`
   margin-top: 10%;
@@ -144,6 +164,10 @@ const CtaWrapper = styled.div`
   justify-content: flex-start;
   gap: 4.8rem;
   width: 100%;
+  ${media.sm`
+  width: auto;
+  justify-content: center;
+  `}
 `;
 const CtaButton = styled(Link)`
   border: none;
@@ -225,6 +249,14 @@ const FloatingPiano = styled.div`
     z-index: -1;
     transform: rotate(45deg);
   }
+  ${media.sm` 
+    right:0;
+    & svg {
+      width: 10rem;
+      height: 10rem;
+     
+    }
+  `}
 `;
 
 gsap.registerPlugin(useGSAP);

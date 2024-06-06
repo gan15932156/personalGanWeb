@@ -1,9 +1,11 @@
 "use client";
+import { RiGalleryView2 } from "react-icons/ri";
 import { FiHome, FiUser } from "react-icons/fi";
 import { RiContactsBook3Line } from "react-icons/ri";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import Link from "next/link";
 import styled, { css } from "styled-components";
+import { media } from "@/providers/responsiveUtils";
 const Wrapper = styled.div`
   position: fixed;
   right: 1rem;
@@ -24,6 +26,16 @@ const Wrapper = styled.div`
   width: fit-content;
   padding: 2rem 1.6rem;
   z-index: 999;
+  ${media.sm`
+    right:unset;
+    transform: translateX(-50%);
+    top: 1rem;
+    left:50%;
+    flex-direction: row;
+    justify-content: space-between;
+    width:80%;
+    padding: 1.2rem 1.6rem;
+  `}
 `;
 const NavLink = styled(Link)`
   position: relative;
@@ -64,6 +76,11 @@ const NavLink = styled(Link)`
     padding: 0.2rem 1rem;
     content: attr(data-link);
     transition: opacity 0.2s ease;
+    ${media.sm`
+      top: unset;
+      left: 50%;
+      bottom:-100%;
+    `}
   }
 `;
 export default function FloatingNav({ isActive }) {
@@ -84,6 +101,14 @@ export default function FloatingNav({ isActive }) {
         data-link="Service"
       >
         <MdOutlineWorkOutline />
+      </NavLink>
+      <NavLink
+        $isActive={isActive == "showcase"}
+        className="active"
+        href={"#showcase"}
+        data-link="Showcase"
+      >
+        <RiGalleryView2 />
       </NavLink>
       <NavLink
         $isActive={isActive == "about"}

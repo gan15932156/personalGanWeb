@@ -1,5 +1,6 @@
 "use client";
 
+import { media } from "@/providers/responsiveUtils";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -11,8 +12,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
-  /* align-items: flex-start; */
-  /* justify-content: center; */
+  ${media.xs`
+    padding: 1.2rem;
+    font-size: 2rem; 
+  `}
 `;
 const Paragraph = styled.p`
   letter-spacing: 0.6px;
@@ -33,6 +36,9 @@ const Image = styled.img`
   width: 32%;
   border-radius: 1rem;
   filter: drop-shadow(1rem 0.7rem 2rem var(--clr-primary-200));
+  ${media.md1`
+      width: 100%;  
+  `}
 `;
 const ImageWrapper = styled.div`
   display: flex;
@@ -40,6 +46,11 @@ const ImageWrapper = styled.div`
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  ${media.md1`
+    & >* {
+      flex:1;
+    }
+  `}
 `;
 export default function AboutCard({ activeTab }) {
   if (activeTab != "about") return null;

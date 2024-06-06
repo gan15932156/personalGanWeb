@@ -4,6 +4,7 @@ import ContactPage from "@/components/ContactPage";
 import FloatingNav from "@/components/FloatingNav";
 import HomaPage from "@/components/HomaPage";
 import ServicePage from "@/components/ServicePage";
+import ShowcasePage from "@/components/ShowcasePage";
 import { MainWrapper, SectionWrapper } from "@/ui/MainWrapper";
 import React, { useRef, useState } from "react";
 import { InView } from "react-intersection-observer";
@@ -33,6 +34,15 @@ export default function Home() {
           return (
             <SectionWrapper className="section-wrapper">
               <ServicePage ref={ref} />
+            </SectionWrapper>
+          );
+        }}
+      </InView>
+      <InView as="div" onChange={setInView} threshold={0.1}>
+        {({ ref }) => {
+          return (
+            <SectionWrapper className="section-wrapper">
+              <ShowcasePage ref={ref} />
             </SectionWrapper>
           );
         }}

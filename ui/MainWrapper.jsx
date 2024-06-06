@@ -1,5 +1,6 @@
 "use client";
 
+import { media } from "@/providers/responsiveUtils";
 import styled from "styled-components";
 
 export const MainWrapper = styled.main`
@@ -23,7 +24,7 @@ export const PageWrapper = styled.section`
   display: grid;
   place-items: center;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   text-align: center;
   position: relative;
   background: rgba(29, 30, 44, 0.24);
@@ -52,4 +53,20 @@ export const SectionWrapper = styled.div`
   position: relative;
   width: 100%;
   margin-block: 8rem;
+
+  ${media.sm`
+    margin-block: 6rem;
+    `}
+`;
+export const SectionHeading = styled.h2`
+  color: var(--clr-primary-500);
+  font-size: 5.4rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+  padding: 0.2rem 4rem;
+  border-radius: 1rem;
+  background-color: var(--clr-bg-600);
+  ${media.md1`
+    font-size: 3.8rem;
+  `}
 `;

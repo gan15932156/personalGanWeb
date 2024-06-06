@@ -5,6 +5,7 @@ import { SiMongodb } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 import { RiNextjsFill } from "react-icons/ri";
 import styled from "styled-components";
+import { media } from "@/providers/responsiveUtils";
 const skills = [
   {
     id: 1,
@@ -47,6 +48,9 @@ const Wrapper = styled.div`
   height: 100%;
   display: grid;
   place-items: center;
+  ${media.xs`
+    padding: 1.2rem;
+  `}
 `;
 const SkillWrapper = styled.div`
   width: 80%;
@@ -62,6 +66,9 @@ const SkillWrapper = styled.div`
   & > * {
     background-color: red;
   }
+  ${media.xs`
+    width: 100%;
+  `}
 `;
 const SkillItemWrapper = styled.div`
   display: flex;
@@ -72,6 +79,7 @@ const SkillItemWrapper = styled.div`
   /* gap: 0.8rem; */
   background-color: var(--clr-primary-300);
   border-radius: 1rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   & svg {
     width: 7.2rem;
     height: 7.2rem;
