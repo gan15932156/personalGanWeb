@@ -3,11 +3,12 @@ import { PageWrapper, SectionHeading } from "@/ui/MainWrapper";
 import { FaHtml5 } from "react-icons/fa";
 import { IoLogoCss3 } from "react-icons/io5";
 import { SiJavascript } from "react-icons/si";
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
 import styled from "styled-components";
 import localFont from "next/font/local";
 import ServiceCard from "./ServiceCard";
 import { media } from "@/providers/responsiveUtils";
+import { StateContext } from "@/context/StateContext";
 const Wrapper = styled.div`
   display: grid;
   position: relative;
@@ -93,16 +94,21 @@ const ServiceCardWrapper = styled.div`
   gap: 2rem;
 `;
 const ServicePage = forwardRef(function MySkillPage({}, ref) {
+  const { toggleService } = useContext(StateContext);
   return (
     <PageWrapper ref={ref} id="service" className={thaiFont.className}>
-      <SectionHeading>บริการ</SectionHeading>
-      <Wrapper>
-        <ServiceCardWrapper>
-          {data.map((e) => (
-            <ServiceCard data={e} key={e.id} />
-          ))}
-        </ServiceCardWrapper>
-      </Wrapper>
+      {toggleService && (
+        <>
+          <SectionHeading>บริการ</SectionHeading>
+          <Wrapper>
+            <ServiceCardWrapper>
+              {data.map((e) => (
+                <ServiceCard data={e} key={e.id} />
+              ))}
+            </ServiceCardWrapper>
+          </Wrapper>
+        </>
+      )}
     </PageWrapper>
   );
 });

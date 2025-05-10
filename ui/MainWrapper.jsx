@@ -46,7 +46,7 @@ export const MySpiritFloating = styled.p`
   white-space: nowrap;
 `;
 export const SectionWrapper = styled.div`
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -126,10 +126,6 @@ const ContactPage = forwardRef(function ContactPage({}, ref) {
                 <FaInstagram />
                 <span>INSTAGRAM</span>
               </SocialItem>
-              <SocialItem href={"#"}>
-                <FaLine />
-                <span>LINE</span>
-              </SocialItem>
             </SocialWrapper>
           </AltContactWrapper>
         </ContactWrapper>

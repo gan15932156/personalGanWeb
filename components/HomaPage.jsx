@@ -1,16 +1,17 @@
 "use client";
 import { FiFacebook, FiChevronDown } from "react-icons/fi";
+import { FaGithub } from "react-icons/fa";
 import { CgPiano } from "react-icons/cg";
-import { FaLine } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { PageWrapper } from "@/ui/MainWrapper";
 import localFont from "next/font/local";
 import Link from "next/link";
-import { forwardRef, useRef } from "react";
-import styled, { keyframes } from "styled-components";
+import { forwardRef, useContext, useEffect, useRef } from "react";
+import styled, { css, keyframes } from "styled-components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { media } from "@/providers/responsiveUtils";
+import { StateContext } from "@/context/StateContext";
 const rotate = keyframes`
   0% {border-radius: 17% 83% 26% 74% / 50% 19% 81% 50%;
   }
@@ -193,16 +194,53 @@ const SocialWrapper = styled.div`
   & svg {
     width: 4rem;
     height: 4rem;
-    fill: var(--clr-accent-500);
-    stroke: var(--clr-accent-500);
+    fill: var(--clr-bg-300);
+    stroke: var(--clr-bg-300);
   }
-  & a {
+`;
+const SocialLink = styled(Link)`
+  border: 2px solid var(--clr-bg-300);
+  border-radius: 0.8rem;
+  display: grid;
+  place-items: center;
+  padding: 0.4rem;
+  &:hover {
+    color: var(--clr-accent-500);
     border: 2px solid var(--clr-accent-500);
-    border-radius: 0.8rem;
-    display: grid;
-    place-items: center;
-    padding: 0.4rem;
+    & svg {
+      fill: var(--clr-accent-500);
+      stroke: var(--clr-accent-500);
+    }
   }
+`;
+const ServiceButton = styled.button`
+  border: 2px solid var(--clr-bg-300);
+  border-radius: 0.8rem;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem 0.4rem;
+  background: transparent;
+  color: var(--clr-bg-300);
+  font-weight: bold;
+  transition: all 0.32s ease;
+  &:hover {
+    color: var(--clr-accent-500);
+    border: 2px solid var(--clr-accent-500);
+  }
+  &:active {
+    background-color: var(--clr-accent-500);
+    color: var(--clr-bg-500);
+  }
+  ${(props) =>
+    props.$isActive &&
+    css`
+      color: var(--clr-accent-500);
+      border: 2px solid var(--clr-accent-500);
+      & svg {
+        fill: var(--clr-accent-500);
+        stroke: var(--clr-accent-500);
+      }
+    `}
 `;
 const ScrollingBtn = styled.button`
   height: fit-content;
@@ -261,9 +299,21 @@ const FloatingPiano = styled.div`
 
 gsap.registerPlugin(useGSAP);
 const thaiFont = localFont({ src: "../font/thaiFont.ttf" });
+
 const HomaPage = forwardRef(function HomaPage({}, ref) {
   const container = useRef();
-
+  const { toggleService, handleToggleService } = useContext(StateContext);
+  const handleServiceClick = () => {
+    if (toggleService) {
+      handleToggleService(false);
+    } else {
+      handleToggleService(true);
+      const element = document.getElementById("service");
+      element?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
   useGSAP(
     () => {
       let svgIcon = gsap.utils.toArray(".scrolling_btn svg");
@@ -296,15 +346,24 @@ const HomaPage = forwardRef(function HomaPage({}, ref) {
           <CtaWrapper>
             <CtaButton href={"#"}>Hire me!</CtaButton>
             <SocialWrapper>
-              <Link href={"#"}>
+              <SocialLink href={"#"}>
                 <FiFacebook />
-              </Link>
-              <Link href={"#"}>
+              </SocialLink>
+              <SocialLink href={"#"}>
                 <IoLogoInstagram />
-              </Link>
-              <Link href={"#"}>
-                <FaLine />
-              </Link>
+              </SocialLink>
+              <SocialLink
+                href={"https://github.com/gan15932156"}
+                target="_blank"
+              >
+                <FaGithub />
+              </SocialLink>
+              <ServiceButton
+                $isActive={toggleService}
+                onClick={handleServiceClick}
+              >
+                ดูบริการ
+              </ServiceButton>
             </SocialWrapper>
           </CtaWrapper>
         </LeftWrapper>

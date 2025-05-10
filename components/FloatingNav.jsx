@@ -6,6 +6,8 @@ import { MdOutlineWorkOutline } from "react-icons/md";
 import Link from "next/link";
 import styled, { css } from "styled-components";
 import { media } from "@/providers/responsiveUtils";
+import { useContext } from "react";
+import { StateContext } from "@/context/StateContext";
 const Wrapper = styled.div`
   position: fixed;
   right: 1rem;
@@ -84,6 +86,7 @@ const NavLink = styled(Link)`
   }
 `;
 export default function FloatingNav({ isActive }) {
+  const { toggleService } = useContext(StateContext);
   return (
     <Wrapper>
       <NavLink
@@ -94,14 +97,16 @@ export default function FloatingNav({ isActive }) {
       >
         <FiHome />
       </NavLink>
-      <NavLink
-        $isActive={isActive == "service"}
-        className="active"
-        href={"#service"}
-        data-link="Service"
-      >
-        <MdOutlineWorkOutline />
-      </NavLink>
+      {toggleService && (
+        <NavLink
+          $isActive={isActive == "service"}
+          className="active"
+          href={"#service"}
+          data-link="Service"
+        >
+          <MdOutlineWorkOutline />
+        </NavLink>
+      )}
       <NavLink
         $isActive={isActive == "showcase"}
         className="active"

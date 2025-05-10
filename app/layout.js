@@ -1,5 +1,6 @@
 import GlobalStyles from "@/providers/GlobalStyle";
 import StyledComponentsRegistry from "@/providers/styledRegistry";
+import StateProvider from "@/context/StateContext";
 import { Roboto_Mono } from "next/font/google";
 const roboto = Roboto_Mono({
   weight: ["400", "500", "600", "700"],
@@ -16,7 +17,7 @@ export default function RootLayout({ children }) {
       <body className={roboto.className}>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          {children}
+          <StateProvider>{children}</StateProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
