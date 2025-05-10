@@ -1,12 +1,10 @@
 "use client";
 import { FiMail, FiPhone } from "react-icons/fi";
-import { FaInstagram, FaLine } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { AiFillFacebook } from "react-icons/ai";
 import localFont from "next/font/local";
 import { PageWrapper, SectionHeading } from "@/ui/MainWrapper";
 import { forwardRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import useWeb3forms from "@web3forms/react";
 import {
@@ -69,7 +67,7 @@ const ContactPage = forwardRef(function ContactPage({}, ref) {
               <Input
                 type="text"
                 placeholder="ชื่อ-นามสกุล"
-                {...register("name", { required: true })}
+                {...register("name")}
               />
             </InputWrapper>
             <InputWrapper>
@@ -95,14 +93,15 @@ const ContactPage = forwardRef(function ContactPage({}, ref) {
             <InputWrapper>
               <Label>ข้อความ</Label>
               <MessageInput
-                {...register("message", { required: true })}
+                {...register("message")}
                 placeholder="ข้อความ"
               ></MessageInput>
             </InputWrapper>
             {isSubmitSuccessful &&
               isSuccess &&
               !isSubmitting &&
-              isSubmitted && <FeedbackText>สำเร็จ</FeedbackText>}
+              isSubmitted && <p>สำเร็จ</p>}
+            {/* isSubmitted && <FeedbackText>สำเร็จ</FeedbackText>} */}
             <SubmitBtn type="submit" disabled={isSubmitting}>
               {isSubmitting ? "กำลังส่ง..." : "ส่งแบบฟอร์ม"}
             </SubmitBtn>
@@ -110,7 +109,7 @@ const ContactPage = forwardRef(function ContactPage({}, ref) {
           <AltContactWrapper>
             <h2>ช่องทางการติดต่อ</h2>
             <SocialWrapper>
-              <SocialItem href={"#"}>
+              <SocialItem href={"mailto:gan123zaa@gmail.com"}>
                 <FiMail />
                 <span>gan123zaa@gmail.com</span>
               </SocialItem>
@@ -121,10 +120,6 @@ const ContactPage = forwardRef(function ContactPage({}, ref) {
               <SocialItem href={"#"}>
                 <AiFillFacebook />
                 <span>FACEBOOK</span>
-              </SocialItem>
-              <SocialItem href={"#"}>
-                <FaInstagram />
-                <span>INSTAGRAM</span>
               </SocialItem>
             </SocialWrapper>
           </AltContactWrapper>

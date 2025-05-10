@@ -1,6 +1,8 @@
 "use client";
 
 import { media } from "@/providers/responsiveUtils";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
 
@@ -40,7 +42,7 @@ const TechStackWrapper = styled.div`
   & svg {
     width: 4rem;
     height: 4rem;
-    fill: var(--clr-accent-500);
+    fill: var(--clr-primary-500);
   }
   ${media.sm`
     & svg{
@@ -49,14 +51,57 @@ const TechStackWrapper = styled.div`
     }
   `}
 `;
+const HeaderWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Name = styled.p`
+  font-size: 2rem;
+  font-weight: bold;
+`;
+const NameWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-center;
+  gap: 2rem;
+`;
+const ExternalLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: cener;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  border: 2px solid transparent;
+  transition: all 0.32 ease;
+  & svg {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--clr-accent-500);
+  }
+  &:hover {
+    border: 2px solid var(--clr-accent-500);
+  }
+`;
 export default function ShowcaseCard({ data }) {
   return (
     <Wrapper>
-      <TechStackWrapper>
-        {data.techStackIcon.map((e, index) => (
-          <React.Fragment key={index}>{e}</React.Fragment>
-        ))}
-      </TechStackWrapper>
+      <HeaderWrapper>
+        <NameWrapper>
+          <Name>{data.name}</Name>
+          {data.link != "" && (
+            <ExternalLink href={data.link} target="_blank">
+              <FaExternalLinkAlt />
+            </ExternalLink>
+          )}
+        </NameWrapper>
+        <TechStackWrapper>
+          {data.techStackIcon.map((e, index) => (
+            <React.Fragment key={index}>{e}</React.Fragment>
+          ))}
+        </TechStackWrapper>
+      </HeaderWrapper>
       <ImageWrapper>
         <Image1 src={data.imagesPath} />
       </ImageWrapper>

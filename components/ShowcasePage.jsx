@@ -2,6 +2,7 @@
 import { media } from "@/providers/responsiveUtils";
 import { PageWrapper, SectionHeading } from "@/ui/MainWrapper";
 import localFont from "next/font/local";
+import { RiNextjsFill } from "react-icons/ri";
 import { forwardRef } from "react";
 import { FaHtml5 } from "react-icons/fa";
 import { IoLogoCss3 } from "react-icons/io5";
@@ -12,23 +13,54 @@ const thaiFont = localFont({ src: "../font/thaiFont.ttf" });
 const data = [
   {
     id: 1,
-    techStackIcon: [<FaHtml5 />, <IoLogoCss3 />, <SiJavascript />],
-    imagesPath: "/showcaseImage/s1.png",
+    techStackIcon: [<RiNextjsFill title="NextJS" />],
+    imagesPath: "/showcaseImage/s0.png",
+    name: "my-template-builder",
+    link: "https://my-template-builder.vercel.app/",
   },
   {
     id: 2,
-    techStackIcon: [<FaHtml5 />, <IoLogoCss3 />, <SiJavascript />],
-    imagesPath: "/showcaseImage/s2.png",
+    techStackIcon: [
+      <FaHtml5 title="HTML5" />,
+      <IoLogoCss3 title="CSS" />,
+      <SiJavascript title="Javascript" />,
+    ],
+    imagesPath: "/showcaseImage/s1.png",
+    name: "",
+    link: "",
   },
   {
     id: 3,
-    techStackIcon: [<FaHtml5 />, <IoLogoCss3 />, <SiJavascript />],
-    imagesPath: "/showcaseImage/s3.png",
+    techStackIcon: [
+      <FaHtml5 title="HTML5" />,
+      <IoLogoCss3 title="CSS" />,
+      <SiJavascript title="Javascript" />,
+    ],
+    imagesPath: "/showcaseImage/s2.png",
+    name: "",
+    link: "",
   },
   {
     id: 4,
-    techStackIcon: [<FaHtml5 />, <IoLogoCss3 />, <SiJavascript />],
+    techStackIcon: [
+      <FaHtml5 title="HTML5" />,
+      <IoLogoCss3 title="CSS" />,
+      <SiJavascript title="Javascript" />,
+    ],
+    imagesPath: "/showcaseImage/s3.png",
+    name: "",
+    link: "",
+  },
+  {
+    id: 5,
+    techStackIcon: [
+      <FaHtml5 title="HTML5" />,
+      <IoLogoCss3 title="CSS" />,
+      <SiJavascript title="Javascript" />,
+    ],
     imagesPath: "/showcaseImage/s4.png",
+    name: null,
+    link: "",
   },
 ];
 

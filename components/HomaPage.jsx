@@ -1,12 +1,12 @@
 "use client";
 import { FiFacebook, FiChevronDown } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaRegFilePdf } from "react-icons/fa";
 import { CgPiano } from "react-icons/cg";
 import { IoLogoInstagram } from "react-icons/io5";
 import { PageWrapper } from "@/ui/MainWrapper";
 import localFont from "next/font/local";
 import Link from "next/link";
-import { forwardRef, useContext, useEffect, useRef } from "react";
+import { forwardRef, useContext, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -169,6 +169,9 @@ const CtaWrapper = styled.div`
   width: auto;
   justify-content: center;
   `}
+  ${media.md2`
+    flex-direction:column;
+  `}
 `;
 const CtaButton = styled(Link)`
   border: none;
@@ -190,6 +193,7 @@ const SocialWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2.4rem;
   & svg {
     width: 4rem;
@@ -204,6 +208,10 @@ const SocialLink = styled(Link)`
   display: grid;
   place-items: center;
   padding: 0.4rem;
+  &:active {
+    background-color: var(--clr-accent-500);
+    color: var(--clr-bg-500);
+  }
   &:hover {
     color: var(--clr-accent-500);
     border: 2px solid var(--clr-accent-500);
@@ -241,6 +249,25 @@ const ServiceButton = styled.button`
         stroke: var(--clr-accent-500);
       }
     `}
+`;
+const ResumeButton = styled(Link)`
+  border: 2px solid var(--clr-bg-300);
+  border-radius: 0.8rem;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem 0.4rem;
+  background: transparent;
+  color: var(--clr-bg-300);
+  font-weight: bold;
+  transition: all 0.32s ease;
+  &:hover {
+    color: var(--clr-accent-500);
+    border: 2px solid var(--clr-accent-500);
+  }
+  &:active {
+    background-color: var(--clr-accent-500);
+    color: var(--clr-bg-500);
+  }
 `;
 const ScrollingBtn = styled.button`
   height: fit-content;
@@ -344,26 +371,52 @@ const HomaPage = forwardRef(function HomaPage({}, ref) {
           <NameText>สวัสดีครับ ผมออแกน</NameText>
           <CareerText>ผมเป็นนักพัฒนาเว็บ Frontend developer</CareerText>
           <CtaWrapper>
-            <CtaButton href={"#"}>Hire me!</CtaButton>
+            <CtaButton href="#cta" title="Contract form">
+              Hire me!
+            </CtaButton>
             <SocialWrapper>
-              <SocialLink href={"#"}>
+              <SocialLink
+                href="https://www.facebook.com/powerganoflove/"
+                target="_blank"
+                title="Facebook link"
+              >
                 <FiFacebook />
               </SocialLink>
-              <SocialLink href={"#"}>
+              <SocialLink
+                href="https://www.instagram.com/pritakpol/"
+                target="_blank"
+                title="Instagram link"
+              >
                 <IoLogoInstagram />
               </SocialLink>
               <SocialLink
-                href={"https://github.com/gan15932156"}
+                href="https://github.com/gan15932156"
                 target="_blank"
+                title="Github link"
               >
                 <FaGithub />
+              </SocialLink>
+              <SocialLink
+                href="https://www.linkedin.com/in/pritakpol-damrisil-917a96153/"
+                target="_blank"
+                title="Linkedin link"
+              >
+                <FaLinkedin />
               </SocialLink>
               <ServiceButton
                 $isActive={toggleService}
                 onClick={handleServiceClick}
+                title="Services section"
               >
                 ดูบริการ
               </ServiceButton>
+              <ResumeButton
+                title="Resume link"
+                href="https://drive.google.com/file/d/12FyuoTq06ZeXO6FdTeWIH-IqdcpWZ5wa/view?usp=sharing"
+                target="_blank"
+              >
+                Resume
+              </ResumeButton>
             </SocialWrapper>
           </CtaWrapper>
         </LeftWrapper>

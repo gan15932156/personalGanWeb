@@ -153,10 +153,10 @@ export default function EduCard({ activeTab }) {
         <TimelineItem>
           <TimelineIcon></TimelineIcon>
           <TimelineContent>
-            <GraduatText>2017-2022</GraduatText>
+            <GraduatText>2010-2016</GraduatText>
             <TimelineContentHeadingWrapper>
               <EduLevelText>โรงเรียนอยุธยาวิทยาลัย</EduLevelText>
-              <InstText>ระดับชั้นมัธยมศึกษาตอนต้น</InstText>
+              <InstText>ระดับชั้นมัธยมศึกษา</InstText>
             </TimelineContentHeadingWrapper>
           </TimelineContent>
         </TimelineItem>
@@ -166,7 +166,7 @@ export default function EduCard({ activeTab }) {
             <GraduatText>2017-2022</GraduatText>
             <TimelineContentHeadingWrapper>
               <EduLevelText>มหาวิทยาลัยราชภัฏพระนครศรีอยุธยา</EduLevelText>
-              <InstText>ระดับชั้นมัธยมศึกษาตอนต้น</InstText>
+              <InstText>ระดับปริญญาตรี</InstText>
             </TimelineContentHeadingWrapper>
           </TimelineContent>
         </TimelineItem>
