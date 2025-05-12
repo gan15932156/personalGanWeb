@@ -412,7 +412,7 @@ const HomaPage = forwardRef(function HomaPage({}, ref) {
               </ServiceButton>
               <ResumeButton
                 title="Resume link"
-                href="https://drive.google.com/file/d/12FyuoTq06ZeXO6FdTeWIH-IqdcpWZ5wa/view?usp=sharing"
+                href="https://drive.google.com/file/d/1gG93O5K1PNmGtOPFKSGkCxBA5Yvag0Qd/view?usp=sharing"
                 target="_blank"
               >
                 Resume
