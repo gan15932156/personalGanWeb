@@ -1,7 +1,7 @@
 "use client";
 import { media } from "@/providers/responsiveUtils";
 import Link from "next/link";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 export const Wrapper = styled.div`
   position: relative;
   padding: 2rem 4rem;
